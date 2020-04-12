@@ -1,0 +1,69 @@
+{% extends "base-site.html" %}
+
+{% block title %} UI Tables {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title ">Algorithm Settings </h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <form method="POST">
+                        <table class="table" style="text-align: center">
+                            <thead class=" text-primary">
+                            <th>
+                                SQ
+                            </th>
+                            <th>
+                                MCN
+                            </th>
+                            <th>
+                                CP
+                            </th>
+                            <th>
+                                SN
+                            </th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center">
+                                        {{ form.SQ(class="form-control" , style="text-align: center") }}
+                                    </td>
+                                    <td>
+                                        {{ form.MCN(class="form-control" , style="text-align: center") }}
+                                    </td>
+                                    <td>
+                                       {{ form.CP(class="form-control" , style="text-align: center") }}
+                                    </td>
+                                    <td>
+                                        {{ form.SN(class="form-control" , style="text-align: center") }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <div style="text-align: center;">
+                                        {{ form.csrf_token }}
+                                        {{ form.submit(class="btn btn-primary")}}
+                                    </div>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

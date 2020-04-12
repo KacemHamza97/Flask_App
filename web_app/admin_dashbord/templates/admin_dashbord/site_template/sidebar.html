@@ -1,0 +1,45 @@
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="/static/assets/img/sidebar-1.jpg">
+      <div class="logo">
+        <a href="" class="simple-text logo-normal">
+          Admin
+        </a>
+      </div>
+      {% if current_user.is_authenticated %}
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="/index">
+              <i class="material-icons"> Admin dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/page-user">
+              <i class="material-icons">person</i>
+              <p>User Profile</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/tables">
+              <i class="material-icons">content_paste</i>
+              <p>Algorithm Settings</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href={{ url_for('admin.logout') }} >
+              <i class="material-icons">directions_run</i>
+              <p>Logout</p>
+            </a>
+          </li>
+
+          <li class="nav-item active-pro ">
+            <a class="nav-link" href={{ url_for('dev.main') }}>
+              <i class="material-icons">unarchive</i>
+              <p>welcome Page</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+
+    </div>

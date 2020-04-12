@@ -1,0 +1,38 @@
+{% extends "base-user.html" %}
+
+{% block content %}
+<section id="services" class="section-bg">
+    <div class="container">
+        <header class="section-header">
+            <h3>Submits History </h3>
+        </header>
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+
+                <table class="table table-striped">
+                    <!--Table head-->
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Date GMT+1</th>
+                        <th>Input File</th>
+                        <th>Output File</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for date in L %}
+                        <tr>
+                            <th scope="row">{{ loop.index0 }}</th>
+                            <td>{{ date[0] }}</td>
+                            <td> Show </td>
+                            <td><a href="{{ pathrelative + date[1] }}"  download>Download</a></td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock content %}
