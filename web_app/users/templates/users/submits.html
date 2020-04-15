@@ -26,13 +26,15 @@
                             <td>{{ date[0] }}</td>
                             <td> Show </td>
                             <td><a href="{{ pathrelative + date[1] }}"  download>Download</a></td>
-
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
         </form>
+        {% for i in range(8) %}
+            <br>
+        {% endfor %}
     </div>
 </section>
 {% endblock content %}
