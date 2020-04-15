@@ -17,7 +17,7 @@
                 <div class="box">
                     <div class="icon" style="background: #eafde7;"><i class="ion-ios-speedometer-outline"
                                                                       style="color:#41cf2e;"></i></div>
-                    <h4 class="title"><a href={{ url_for('dev.upload') }}>Mono-objective</a></h4>
+                    <h4 class="title"><a href={{ url_for('dev.upload') }}>Single-objective</a></h4>
                     <p class="description">description</p>
                 </div>
             </div>
@@ -26,12 +26,15 @@
                 <div class="box">
                     <div class="icon" style="background: #ffccbc;"><i class="ion-ios-clock-outline"
                                                                       style="color: #95999c;"></i></div>
-                    <h4 class="title"><a href={{ url_for('dev.upload') }}>Multy-objective</a></h4>
+                    <h4 class="title"><a href={{ url_for('dev.upload') }}>Multi-objective</a></h4>
                     <p class="description">description</p>
                 </div>
             </div>
 
         </div>
+            {% for i in range(6) %}
+                <br>
+            {% endfor %}
 
     </div>
 </section>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>PCD Ensi 2020</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <!-- Favicons -->
+    <link href="/static/contain/img/favicon.png" rel="icon">
+    <link href="/static/contain/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700"
+          rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="/static/contain/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="/static/contain/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/contain/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/static/contain/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/static/contain/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/contain/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="/static/contain/css/loading.css" rel="stylesheet">
+    <link href="/static/contain/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<!--==========================
+Header
+============================-->
+<header id="header">
+
+    <div id="topbar">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://twitter.com/" class="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/" class="instagram"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <nav class="main-nav float-right d-none d-lg-block">
+            <ul>
+                <li class="active"><a href={{ url_for('dev.main') }} >Home</a></li>
+                {% if current_user.is_authenticated %}
+                <li><a href={{ url_for('dev.client_logout') }}>Logout</a></li>
+                {% else %}
+                <li><a href={{ url_for('dev.client_login') }}>Login</a></li>
+                <li><a href={{ url_for('dev.client_register') }}>Register</a></li>
+                {% endif %}
+            </ul>
+        </nav><!-- .main-nav -->
+
+    </div>
+</header><!-- #header -->
+
+<!--==========================
+  Intro Section
+============================-->
+<main id="main">
+    <section id="services" class="section-bg">
+        <div class="container">
+            {% for i in range(9) %}
+                <br>
+            {% endfor %}
+            <h3 style="color: #0a98c0; font-weight: bold;text-align: center;">Just a few moments away from generating the optimal solution for you.</h3>
+            <div class="loader">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            {% for i in range(8) %}
+                <br>
+            {% endfor %}
+        </div>
+    </section>
+</main>
+
+<!--==========================
+  Footer
+============================-->
+<footer id="footer" class="section-bg">
+    <div class="footer-top">
+    </div>
+    <div class="container">
+        <div class="copyright">
+            &copy; Copyright <strong>PCD Ensi</strong>. All Rights Reserved
+        </div>
+    </div>
+</footer><!-- #footer -->
+
+<!-- Uncomment below i you want to use a preloader -->
+<!-- <div id="preloader"></div> -->
+
+<!-- JavaScript Libraries -->
+<script src="/static/contain/lib/jquery/jquery.min.js"></script>
+<script src="/static/contain/lib/jquery/jquery-migrate.min.js"></script>
+<script src="/static/contain/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/static/contain/lib/easing/easing.min.js"></script>
+<script src="/static/contain/lib/mobile-nav/mobile-nav.js"></script>
+<script src="/static/contain/lib/wow/wow.min.js"></script>
+<script src="/static/contain/lib/waypoints/waypoints.min.js"></script>
+<script src="/static/contain/lib/counterup/counterup.min.js"></script>
+<script src="/static/contain/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="/static/contain/lib/isotope/isotope.pkgd.min.js"></script>
+<script src="/static/contain/lib/lightbox/js/lightbox.min.js"></script>
+<!-- Contact Form JavaScript File -->
+<script src="/static/contain/contactform/contactform.js"></script>
+
+<!-- Template Main Javascript File -->
+<script src="/static/contain/js/main.js"></script>
+
+</body>
+</html>

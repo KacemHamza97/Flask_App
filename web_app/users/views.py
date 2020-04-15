@@ -18,6 +18,11 @@ def main():
     return render_template('main.html')
 
 
+@dev.route('/loading')
+def loading():
+    return render_template('loading_page.html')
+
+
 @dev.route('/submits', methods=['GET', 'POST'])
 def submits():
     pathd = os.path.join(current_app.root_path, f"static/files/users_uploads/{current_user.id}/submits")
