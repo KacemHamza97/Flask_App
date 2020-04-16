@@ -6,10 +6,10 @@ from wtforms.validators import Email, DataRequired, ValidationError, EqualTo
 # login and registration
 from web_app.models import User
 
-
-class Login(FlaskForm):
-    username = StringField('Username', id='username_login', validators=[DataRequired()])
-    password = PasswordField('Password', id='pwd_login', validators=[DataRequired()])
+#
+# class Login(FlaskForm):
+#     username = StringField('Username', id='username_login', validators=[DataRequired()])
+#     password = PasswordField('Password', id='pwd_login', validators=[DataRequired()])
 
 
 class Register(FlaskForm):
@@ -40,4 +40,10 @@ class Login(FlaskForm):
 class UploadFile(FlaskForm):
     file = FileField('Choose file... ', validators=[FileAllowed(['json'])])
     submit = SubmitField('Submit')
+
+class AlgorithmType(FlaskForm):
+    submit1 = SubmitField('Single-objective')
+    submit2 = SubmitField('Multi-objective')
+
+
 

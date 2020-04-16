@@ -1,14 +1,14 @@
 import os
 from datetime import datetime
 
-from flask import render_template, redirect, url_for, request, Blueprint, flash, current_app
+from flask import render_template, redirect, url_for, request, Blueprint, flash, current_app, session
 
 from flask_login import login_user, current_user, logout_user
 
 from web_app import db
 from web_app.models import User
 from web_app.users.file_handler import add_file
-from web_app.users.forms import Login, Register, UploadFile
+from web_app.users.forms import Login, Register, UploadFile, AlgorithmType
 
 dev = Blueprint('dev', __name__, template_folder='templates/users', static_folder='static')
 
@@ -16,11 +16,6 @@ dev = Blueprint('dev', __name__, template_folder='templates/users', static_folde
 @dev.route('/')
 def main():
     return render_template('main.html')
-
-
-@dev.route('/loading')
-def loading():
-    return render_template('loading_page.html')
 
 
 @dev.route('/submits', methods=['GET', 'POST'])
@@ -31,19 +26,26 @@ def submits():
     L = []  # date formated list
     for name in files_names:
         format_date = name[:-5].replace('_', '-', 2).replace('_', ':', 2)
-        L.append((format_date,name))
-
+        L.append((format_date, name))
     return render_template('submits.html', L=L, pathrelative=pathrelative)
 
 
-@dev.route('/service')
+@dev.route('/loading')
+def loading_page():
+    return render_template("loading_page.html")
+
+
+@dev.route('/service', methods=['GET', 'POST'])
 def service():
-    return render_template('service.html')
-
-
-# @dev.route('/upload')
-# def upload():
-#     return render_template("upload.html")
+    form = AlgorithmType()
+    if form.validate_on_submit():
+        if form.submit1.data:  # if submit1 is clicked
+            session["algorithm"] = "Single-objective"
+            return redirect(url_for('dev.upload'))
+        if form.submit2.data:  # if submit2 is clicked
+            session["algorithm"] = "Multi-objective"
+            return redirect(url_for('dev.upload'))
+    return render_template('service.html', form=form)
 
 
 @dev.route("/client_logout")
@@ -95,6 +97,7 @@ def client_register():
 
 @dev.route("/upload", methods=['GET', 'POST'])
 def upload():
+    print(session["algorithm"])
     form = UploadFile()
     if form.validate_on_submit():
         if form.file.data:
@@ -106,5 +109,5 @@ def upload():
                 user = User(datetime.now(), "__@gmail.com", "-1")
                 add_file(form.file.data, user)
                 flash('File uploaded successfully')
-        return redirect(url_for('dev.submits'))
+        return redirect(url_for('dev.loading_page'))
     return render_template('upload.html', form=form)
