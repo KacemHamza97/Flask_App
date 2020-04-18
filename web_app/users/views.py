@@ -2,17 +2,15 @@ import os
 from datetime import datetime
 
 from flask import render_template, redirect, url_for, request, Blueprint, flash, current_app, session
-
 from flask_login import login_user, current_user, logout_user
 
-from web_app import db
+from web_app import db, app
 from web_app.models import User
+from web_app.users.back_end.generate import generate_solution
 from web_app.users.file_handler import add_file
 from web_app.users.forms import Login, Register, UploadFile, AlgorithmType
 
 dev = Blueprint('dev', __name__, template_folder='templates/users', static_folder='static')
-
-
 @dev.route('/')
 def main():
     return render_template('main.html')
@@ -30,9 +28,10 @@ def submits():
     return render_template('submits.html', L=L, pathrelative=pathrelative)
 
 
-@dev.route('/loading')
-def loading_page():
-    return render_template("loading_page.html")
+@dev.route('/result', methods=['GET', 'POST'])
+def result():
+    solution_services = generate_solution()
+    return render_template('result.html', solution_services=solution_services)
 
 
 @dev.route('/service', methods=['GET', 'POST'])
@@ -51,6 +50,7 @@ def service():
 @dev.route("/client_logout")
 def client_logout():
     logout_user()
+    session.clear()
     return redirect(url_for('dev.service'))
 
 
@@ -64,13 +64,8 @@ def client_login():
         if user.check_password(form.password.data) and user is not None:
 
             login_user(user)
-
-            # If a user was trying to visit a page that requires a login
-            # flask saves that URL as 'next'.
             next = request.args.get('next')
 
-            # So let's now check if that next exists, otherwise we'll go to
-            # the welcome page.
             if form.username.data == 'Hamza':
                 return redirect(url_for('admin.login'))
 
@@ -97,7 +92,6 @@ def client_register():
 
 @dev.route("/upload", methods=['GET', 'POST'])
 def upload():
-    print(session["algorithm"])
     form = UploadFile()
     if form.validate_on_submit():
         if form.file.data:
@@ -109,5 +103,5 @@ def upload():
                 user = User(datetime.now(), "__@gmail.com", "-1")
                 add_file(form.file.data, user)
                 flash('File uploaded successfully')
-        return redirect(url_for('dev.loading_page'))
+        return redirect(url_for('dev.result'))
     return render_template('upload.html', form=form)

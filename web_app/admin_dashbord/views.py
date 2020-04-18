@@ -92,7 +92,7 @@ def create_user():
 def tables():
     form = AlgorithmSettings()
     if form.validate_on_submit():
-        d = {'SQ':form.SQ.data, 'MCN': form.MCN.data, 'CP': form.CP.data, 'SN': form.SN.data }
+        d = {'SQ':form.SQ.data, 'MCN': form.MCN.data, 'CP': form.CP.data, 'SN': form.SN.data,'SCP':form.SQ.data}
         filepath = os.path.join(current_app.root_path, "static/files/admin_settings", "parameters.json")
         with open(filepath, 'w') as f:
             json.dump( d,f)

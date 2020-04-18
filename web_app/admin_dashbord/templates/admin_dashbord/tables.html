@@ -19,39 +19,45 @@
                         <table class="table" style="text-align: center">
                             <thead class=" text-primary">
                             <th>
-                                SQ
+                                SN
                             </th>
                             <th>
                                 MCN
                             </th>
                             <th>
-                                CP
+                                SQ
                             </th>
                             <th>
-                                SN
+                                CP<span style="color: red" >*</span>
+                            </th>
+                            <th>
+                                SCP<span style="color: red" >*</span>
                             </th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td style="text-align: center">
-                                        {{ form.SQ(class="form-control" , style="text-align: center") }}
-                                    </td>
-                                    <td>
-                                        {{ form.MCN(class="form-control" , style="text-align: center") }}
-                                    </td>
-                                    <td>
-                                       {{ form.CP(class="form-control" , style="text-align: center") }}
-                                    </td>
-                                    <td>
-                                        {{ form.SN(class="form-control" , style="text-align: center") }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <div style="text-align: center;">
-                                        {{ form.csrf_token }}
-                                        {{ form.submit(class="btn btn-primary")}}
-                                    </div>
-                                </tr>
+                            <tr>
+                                <td style="text-align: center">
+                                    {{ form.SN(class="form-control" , style="text-align: center") }}
+                                </td>
+                                <td>
+                                    {{ form.MCN(class="form-control" , style="text-align: center") }}
+                                </td>
+                                <td>
+                                    {{ form.SQ(class="form-control" , style="text-align: center") }}
+                                </td>
+                                <td>
+                                    {{ form.CP(class="form-control" , style="text-align: center") }}
+                                </td>
+                                <td>
+                                    {{ form.SCP(class="form-control" , style="text-align: center") }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <div style="text-align: center;">
+                                    {{ form.csrf_token }}
+                                    {{ form.submit(class="btn btn-primary")}}
+                                </div>
+                            </tr>
 
                             </tbody>
 

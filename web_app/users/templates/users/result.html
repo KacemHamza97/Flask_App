@@ -1,0 +1,35 @@
+{% extends "base-user.html" %}
+
+{% block content %}
+<section id="services" class="section-bg">
+    <div class="container">
+        <header class="section-header">
+            <h3>Submits History </h3>
+        </header>
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+
+                <table class="table table-striped">
+                    <!--Table head-->
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Solution</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for cp in solution_services %}
+                        <tr>
+                            <th scope="row">{{ cp }}</th>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </form>
+        {% for i in range(8) %}
+            <br>
+        {% endfor %}
+    </div>
+</section>
+{% endblock content %}

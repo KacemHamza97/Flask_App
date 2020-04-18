@@ -10,7 +10,7 @@ def add_file(file, user, type = "input"):
     pathd = os.path.join(current_app.root_path, "static/files/users_uploads")
     if directory_name not in os.listdir(pathd):
         os.makedirs(pathd + "/" + directory_name)
-        os.makedirs(pathd + "/" + directory_name + "/" + "submits" )
+        os.makedirs(pathd + "/" + directory_name + "/" + "submits")
         os.makedirs(pathd + "/" + directory_name + "/" + "results")
     file_name = str(datetime.now()).replace('-', '_').replace(':', '_')[:19]
     if type == "input":
