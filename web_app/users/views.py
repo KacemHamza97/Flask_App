@@ -4,7 +4,7 @@ from datetime import datetime
 from flask import render_template, redirect, url_for, request, Blueprint, flash, current_app, session
 from flask_login import login_user, current_user, logout_user
 
-from web_app import db, app
+from web_app import db
 from web_app.models import User
 from web_app.users.back_end.generate import generate_solution
 from web_app.users.file_handler import add_file

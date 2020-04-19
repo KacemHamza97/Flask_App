@@ -48,8 +48,7 @@ def generate_solution():
         # predict mcn
         mcn = model_mcn.predict(Xnew)
     else:
-        # mcn = data["MCN"]
-        mcn = 300
+        mcn = int(data["MCN"])
 
     if data["SN"] == "":
         # sn
@@ -62,14 +61,12 @@ def generate_solution():
         else:
             sn = 50
     else:
-        # sn = int(data["SN"])
-        sn = 20
+        sn = int(data["SN"])
     # sq
     if data["SQ"] == "":
         sq = mcn // 10 if mcn < 1000 else 100
     else:
-        # sq = data["SQ"]
-        sq = 20
+        sq = int(data["SQ"])
     # executing algorithm
     if session["algorithm"] == "Single-objective":
         # cp
@@ -97,4 +94,4 @@ def generate_solution():
             services.append(sol.getService(act))
         solution_services.append(services) #list of cp , each cp is [service1,...service n] and the index
                                            # represents n_act
-    return solution_services
+    return solution_services[:5]

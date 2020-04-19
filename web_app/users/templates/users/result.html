@@ -13,15 +13,20 @@
                     <!--Table head-->
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Solution</th>
+                        <th rowspan="5" style="text-align: center">Composition Plan N°</th>
+                        <th style="text-align: center">activity N°</th>
+                        <th style="text-align: center">Candidate Service ID </th>
                     </tr>
                     </thead>
                     <tbody>
-                    {% for cp in solution_services %}
-                        <tr>
-                            <th scope="row">{{ cp }}</th>
-                        </tr>
+                    {% for icp in range(solution_services|length) %}
+                        <td  rowspan="6" style="text-align: center"> {{ icp+1 }}</td>
+                        {% for iser in range(solution_services[icp]|length) %}
+                            <tr>
+                                <td style="text-align: center"> {{ iser+1 }} </td>
+                                <td style="text-align: center">{{ solution_services[icp][iser].getId() }}   </td>
+                            </tr>
+                        {% endfor %}
                     {% endfor %}
                     </tbody>
                 </table>
