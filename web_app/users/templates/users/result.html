@@ -23,11 +23,11 @@
                     </thead>
                     <tbody>
                     {% for icp in range(solution_services|length) %}
-                        <td  rowspan="6" style="text-align: center"><br> {{ icp+1 }}<br><br>
-                            Price : {{ final_solutions[icp]["price"] }} <br>
-                            Response Time : {{ final_solutions[icp]["responseTime"] }}<br>
-                            Availability : {{ final_solutions[icp]["availability"] }}<br>
-                            Reliability :  {{ final_solutions[icp]["reliability"] }}
+                        <td  rowspan="6" style="text-align: center"><h3>{{ icp+1 }}</h3><br>
+                            <span style="color: #00c853;font-weight: bold">Price</span> : {{ final_solutions[icp]["price"] }} <br>
+                            <span style="color: #005cbf;font-weight: bold">Response Time</span> : {{ final_solutions[icp]["responseTime"] }}<br>
+                            <span style="color: darkviolet;font-weight: bold">Availability</span> : {{ final_solutions[icp]["availability"] }}<br>
+                            <span style="color: #d84315;font-weight: bold">Reliability</span> :  {{ final_solutions[icp]["reliability"] }}
                         </td>
                         {% for iser in range(solution_services[icp]|length) %}
                             <tr>

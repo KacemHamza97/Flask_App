@@ -37,7 +37,7 @@ def submits():
     for name in files_names_res:
         L2.append((name))
 
-    return render_template('submits.html', L1=L1, L2=L2, pathrelativesubmits=pathrelativesubmits, pathrelativeresults=pathrelativeresults)
+    return render_template('submits.html', L1=L1[::-1], L2=L2[::-1], pathrelativesubmits=pathrelativesubmits, pathrelativeresults=pathrelativeresults)
 
 
 @dev.route('/result', methods=['GET', 'POST'])
