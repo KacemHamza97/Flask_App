@@ -20,12 +20,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for date in L %}
+                    {% for i in range(L1|length) %}
                         <tr>
                             <th scope="row">{{ loop.index0 }}</th>
-                            <td>{{ date[0] }}</td>
-                            <td> Show </td>
-                            <td><a href="{{ pathrelative + date[1] }}"  download>Download</a></td>
+                            <td>{{ L1[i][0] }}</td>
+                            <td><a href="{{ pathrelativesubmits + L1[i][1] }}"  download>Download</a></td>
+                            <td><a href="{{ pathrelativeresults + L2[i] }}"  download>Download</a></td>
                         </tr>
                     {% endfor %}
                     </tbody>

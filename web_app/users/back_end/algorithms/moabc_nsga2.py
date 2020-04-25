@@ -27,7 +27,7 @@ def moabc_nsga2(problem, SQ, MCN, SN, N):
         for sol in exploited:
             cp1 = sol.cp
             cp2 = CompositionPlan(problem.getActGraph(), problem.getCandidates())  # randomly generated
-            offsprings = BSG(cp1, cp2, problem.getConstraints())  # BSG
+            offsprings = BSG(cp1, cp2, problem.getCandidates())  # BSG
             # Adding offsprings
             U += [Solution(cp=cp, functions=functions(cp), limit=0) for cp in offsprings]
         # end of employed bees phase
@@ -49,7 +49,7 @@ def moabc_nsga2(problem, SQ, MCN, SN, N):
                 cp2 = choice(pf).cp
                 if cp2 != cp1:
                     break
-                offsprings = BSG(cp1, cp2, problem.getConstraints())  # BSG
+                offsprings = BSG(cp1, cp2, problem.getCandidates())  # BSG
                 # Adding offsprings
                 U += [Solution(cp=cp, functions=functions(cp), limit=0) for cp in offsprings]
 

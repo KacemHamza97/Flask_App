@@ -19,7 +19,7 @@ class Problem:
     # constructor
 
     def __init__(self , input):
-        self.__actGraph = input["actGraph"]
+        self.__actGraph = list(input["actGraph"])
         self.__candidates = generateCandidates(input)
         self.__constraints = input["constraints"]
         try :

@@ -104,7 +104,8 @@ def abc_genetic(problem, SN, SQ, MCN, SCP, N, CP):
             updateBest(solutionsList, best_solution)
 
         updateMinMax(solutionsList, minQos, maxQos, problem.getWeights(), best_solution)
-        best_solutions.append(best_solution)
+        best_solutions.append(Solution(cp = best_solution.cp.clone(), fitness = best_solution.fitness))
 
     # end of algorithm
-    return sorted(remove_redundant(best_solutions), key=lambda sol: sol.fitness, reverse=True)
+    L = remove_redundant(best_solutions)
+    return sorted(L, key=lambda sol: sol.fitness, reverse=True)

@@ -47,6 +47,7 @@ Header
             <ul>
                 <li class="active"><a href={{ url_for('dev.main') }} >Home</a></li>
                 {% if current_user.is_authenticated %}
+                <li><a href={{ url_for('dev.submits') }}>historical</a></li>
                 <li><a href={{ url_for('dev.client_logout') }}>Logout</a></li>
                 {% else %}
                 <li><a href={{ url_for('dev.client_login') }}>Login</a></li>

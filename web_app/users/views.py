@@ -1,3 +1,4 @@
+import json
 import os
 from datetime import datetime
 
@@ -7,10 +8,12 @@ from flask_login import login_user, current_user, logout_user
 from web_app import db
 from web_app.models import User
 from web_app.users.back_end.generate import generate_solution
-from web_app.users.file_handler import add_file
+from web_app.users.file_handler import add_file, input_data
 from web_app.users.forms import Login, Register, UploadFile, AlgorithmType
 
 dev = Blueprint('dev', __name__, template_folder='templates/users', static_folder='static')
+
+
 @dev.route('/')
 def main():
     return render_template('main.html')
@@ -18,20 +21,43 @@ def main():
 
 @dev.route('/submits', methods=['GET', 'POST'])
 def submits():
-    pathd = os.path.join(current_app.root_path, f"static/files/users_uploads/{current_user.id}/submits")
-    pathrelative = f"/static/files/users_uploads/{current_user.id}/submits/"
-    files_names = os.listdir(pathd)
-    L = []  # date formated list
-    for name in files_names:
+    pathsub = os.path.join(current_app.root_path, f"static/files/users_uploads/{current_user.id}/submits")
+    pathres = os.path.join(current_app.root_path, f"static/files/users_uploads/{current_user.id}/results")
+    pathrelativesubmits = f"/static/files/users_uploads/{current_user.id}/submits/"
+    pathrelativeresults = f"/static/files/users_uploads/{current_user.id}/results/"
+    files_names_sub = os.listdir(pathsub)
+    files_names_res = os.listdir(pathres)
+
+    L1 = []  # date formated list
+    for name in files_names_sub:
         format_date = name[:-5].replace('_', '-', 2).replace('_', ':', 2)
-        L.append((format_date, name))
-    return render_template('submits.html', L=L, pathrelative=pathrelative)
+        L1.append((format_date, name))
+
+    L2 = []  # date formated list
+    for name in files_names_res:
+        L2.append((name))
+
+    return render_template('submits.html', L1=L1, L2=L2, pathrelativesubmits=pathrelativesubmits, pathrelativeresults=pathrelativeresults)
 
 
 @dev.route('/result', methods=['GET', 'POST'])
 def result():
-    solution_services = generate_solution()
-    return render_template('result.html', solution_services=solution_services)
+    solution_services, final_solutions = generate_solution()
+    data_j = input_data(solution_services)
+    if current_user.is_authenticated:
+        add_file(data_j, current_user, type="output")
+        pathd = os.path.join(current_app.root_path, f"static/files/users_uploads/{current_user.id}/results")
+        files_name = os.listdir(pathd)[-1]
+        pathrelative = f"/static/files/users_uploads/{current_user.id}/results/" + files_name
+    else:
+        user = User(datetime.now(), "__@gmail.com", "-1")
+        add_file(data_j, user, type="output")
+        pathd = os.path.join(current_app.root_path, f"static/files/users_uploads/None/results")
+        files_name = os.listdir(pathd)[-1]
+        pathrelative = f"/static/files/users_uploads/None/results/" + files_name
+
+
+    return render_template('result.html', solution_services=solution_services, final_solutions=final_solutions, pathrelative=pathrelative)
 
 
 @dev.route('/service', methods=['GET', 'POST'])

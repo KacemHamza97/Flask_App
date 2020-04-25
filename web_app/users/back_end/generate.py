@@ -76,7 +76,7 @@ def generate_solution():
         solutions = abc_genetic(problem=p, SN=sn, SQ=sq, MCN=mcn, SCP=scp, N=20, CP=cp)
 
     elif session["algorithm"] == "Multi-objective":
-        solutions = moabc_nsga2(problem=p, SN=sn, SQ=sq, MCN=mcn)
+        solutions = moabc_nsga2(problem=p, SN=sn, SQ=sq, MCN=mcn, N=10)
 
     # verifying constraints
     final_solutions = []
@@ -92,6 +92,5 @@ def generate_solution():
         services = []
         for act in range(n_act):
             services.append(sol.getService(act))
-        solution_services.append(services) #list of cp , each cp is [service1,...service n] and the index
-                                           # represents n_act
-    return solution_services[:5]
+        solution_services.append(services) #list of cp , each cp is [service1,...service n] and the index                              # represents n_act
+    return solution_services, [sol.cpQos() for sol in final_solutions]

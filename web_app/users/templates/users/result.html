@@ -4,7 +4,10 @@
 <section id="services" class="section-bg">
     <div class="container">
         <header class="section-header">
-            <h3>Submits History </h3>
+            <h3>Results</h3>
+            <br><br>
+           <h4 style="text-align: center"> <a href="{{ pathrelative }}" download>Download</a> </h4>
+            <br>
         </header>
         <form method="post" enctype="multipart/form-data">
             <div class="row">
@@ -20,7 +23,12 @@
                     </thead>
                     <tbody>
                     {% for icp in range(solution_services|length) %}
-                        <td  rowspan="6" style="text-align: center"> {{ icp+1 }}</td>
+                        <td  rowspan="6" style="text-align: center"><br> {{ icp+1 }}<br><br>
+                            Price : {{ final_solutions[icp]["price"] }} <br>
+                            Response Time : {{ final_solutions[icp]["responseTime"] }}<br>
+                            Availability : {{ final_solutions[icp]["availability"] }}<br>
+                            Reliability :  {{ final_solutions[icp]["reliability"] }}
+                        </td>
                         {% for iser in range(solution_services[icp]|length) %}
                             <tr>
                                 <td style="text-align: center"> {{ iser+1 }} </td>
