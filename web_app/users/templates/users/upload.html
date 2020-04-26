@@ -3,34 +3,39 @@
 {% block content %}
 
 <section id="services" class="section-bg">
-        <div class="container">
-            <header class="section-header">
-                <h3>Upload Your File Here </h3>
-            </header>
-            <br>
-            <div class="row">
-                <div class="container">
-                    <form class="was-validated" method="post" enctype="multipart/form-data">
-                        <div class="custom-file">
-                            {{ form.file.label(class="custom-file-label", id="validatedCustomFile") }}
-                            {{ form.file(class="custom-file-input", for="validatedCustomFile", required='required') }}
-                            <div class="invalid-feedback">Please upload your json file here</div>
-                        </div>
-                        <span><br><br></span>
-                        {{ form.csrf_token }}
-                        {{ form.submit(class="btn btn-primary" ,onclick="$('#loading').show();") }}
-                        <div class="spinner-grow text-info" role="status">
-                            <span class="sr-only">Loading...</span>
-                        </div>
-                        {% for i in range(15) %}
-                            <br>
-                        {% endfor %}
-                        <div id="loading" style="display:none;position: absolute;right: 7%;bottom: 20%;"><img src="/static/assets/img/wait.gif" alt=""/></div>
-                        <br>
-                    </form>
-                </div>
+    <div class="container">
+        <header class="section-header">
+            <h3>Upload Your File Here </h3>
+        </header>
+        <br>
+        <div class="row">
+            <div class="container">
+                <form class="was-validated" method="post" enctype="multipart/form-data">
+                    <div class="custom-file">
+                        {{ form.file.label(class="custom-file-label", id="validatedCustomFile") }}
+                        {{ form.file(class="custom-file-input", for="validatedCustomFile", required='required') }}
+                        <div class="invalid-feedback">Please upload your json file here</div>
+                    </div>
+                    <span><br><br></span>
+                    {{ form.csrf_token }}
+                    {{ form.submit(class="btn btn-primary" ,onclick="$('#loading').show();") }}
+                    <div class="spinner-grow text-info" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    {% for i in range(15) %}
+                    <br>
+                    {% endfor %}
+
+                    <div class="card bg-dark text-white">
+                        <h5>JSON file exemple.</h5>
+                        <img class="card-img" src="/static/contain/img/demo.png" alt="Card image">
+                    </div>
+                    <div id="loading" style="display:none;position: absolute;right: 7%;bottom: 30%;"><img src="/static/assets/img/wait.gif" alt=""/></div>
+                    <br>
+                </form>
             </div>
         </div>
+    </div>
 </section>
 {% endblock content %}
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>

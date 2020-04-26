@@ -1,0 +1,38 @@
+
+{
+    "n_act": 5, //number of abstract services
+    "actGraph": [[0,1, 0],[1,2,0],[2,3,0],[3,4,0]],// 0: for sequential , 1:for parallel, -1 for conditional
+    "constraints": {
+        "responseTime": 5,
+        "price": 5,
+        "availability": 0.7,
+        "reliability": 0.7
+    },
+    "weights": { // required in Single-objective algorithm
+        "responseTime": 0.5,
+        "price": 0.25,
+        "availability": 0.15,
+        "reliability": 0.1
+    },
+    "0": [       //abstract service and candidate concrete services list
+        {
+            "id": 31582737,
+            "activity": 0,
+            "responseTime": 4.155374102417334,
+            "price": 0.16957826442630214,
+            "availability": 0.9229908094957247,
+            "reliability": 0.7971655237692451,
+            "matchingState": "precise"
+        },
+        {
+            "id": 31565827,
+            "activity": 0,
+            "responseTime": 4.15537425544,
+            "price": 0.16957826442630214,
+            "availability": 0.9222547157247,
+            "reliability": 0.7971655236582451,
+            "matchingState": "precise"
+        }
+
+    ]
+}
