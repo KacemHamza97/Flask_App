@@ -7,8 +7,7 @@
 
         <header class="section-header">
             <h3>Services</h3>
-            <p>we present two methods for selecting the best composition Plan, please choose one methods from these two
-                options .</p>
+            <p>Please choose one method from these two options.</p>
         </header>
         <form method="post">
             <div class="row">
@@ -18,7 +17,9 @@
                         <br>
                         {{ form.csrf_token }}
                         {{ form.submit1(class="btn btn-outline-info btn-rounded waves-effect") }}
-                        <p class="description">description</p>
+                        <p class="description"><br>This method requires that you indicate the most crucial qualities of service.
+                            The algorithm will focus on optimizing these preferences.
+                            <br>Weights attribute is required in the JSON file.</p>
                     </div>
                 </div>
                 <div class="col-md-7 col-lg-6 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
@@ -26,7 +27,9 @@
                         <div class="icon" style="background: #ffccbc;"><i class="ion-ios-clock-outline" style="color: #95999c;"></i></div>
                         <br>
                         {{ form.submit2(class="btn btn-outline-info btn-rounded waves-effect") }}
-                        <p class="description">description</p>
+                        <p class="description"><br>The algorithm will proceed in optimizing the qualities of service all at once.
+                            this will result in a more diverse set of solutions.
+                            <br>No weights attribute are required in the JSON file.</p>
                     </div>
                 </div>
             </div>
