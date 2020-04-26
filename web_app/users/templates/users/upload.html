@@ -22,16 +22,12 @@
                     <div class="spinner-grow text-info" role="status">
                         <span class="sr-only">Loading...</span>
                     </div>
-                    {% for i in range(15) %}
-                    <br>
-                    {% endfor %}
-
-                    <div class="card bg-dark text-white">
+                    <br><br><br>
+                    <div id="loading" style="display:none;position: relative;right: 7%;bottom: 10%;"><img src="/static/assets/img/wait.gif" alt=""/></div>
+                    <div class="card bg-dark text-white" style="position: relative;right: 0%;bottom: 325;">
                         <h5>JSON file exemple.</h5>
                         <img class="card-img" src="/static/contain/img/demo.png" alt="Card image">
                     </div>
-                    <div id="loading" style="display:none;position: absolute;right: 7%;bottom: 30%;"><img src="/static/assets/img/wait.gif" alt=""/></div>
-                    <br>
                 </form>
             </div>
         </div>
