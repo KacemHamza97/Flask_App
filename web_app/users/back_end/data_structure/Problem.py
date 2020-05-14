@@ -2,7 +2,7 @@ from web_app.users.back_end.data_structure.Service import Service
 
 def generateCandidates(input):
     candidates = list()
-    for i in range(input["n_act"]):
+    for i in range(len(input["activities"])):
         candidates.append([])
         for candidate in input[str(i)]:
             service = Service(**candidate)

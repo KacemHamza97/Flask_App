@@ -1,0 +1,11 @@
+{
+    "solutions": [
+        {
+            "stockage": 17315160,
+            "machinelearning": 1352232,
+            "printer": 2282688,
+            "calcul": 26708945,
+            "server": 35151403
+        }
+    ]
+}

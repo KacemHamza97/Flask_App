@@ -42,8 +42,8 @@ class UploadFile(FlaskForm):
     submit = SubmitField('Submit')
 
 class AlgorithmType(FlaskForm):
-    submit1 = SubmitField('Single-objective')
-    submit2 = SubmitField('Multi-objective')
+    submit1 = SubmitField('QoS preferences')
+    submit2 = SubmitField('No QoS preferences')
 
 
 

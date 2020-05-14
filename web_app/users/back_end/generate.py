@@ -29,68 +29,32 @@ def generate_solution():
         with open(pathd + "/" + file_name) as file:
             user_input = json.load(file)
 
+    n_act =len(user_input["activities"])
     # +----------------------------------------------------------------------------------------------+#
     # problem init
     p = Problem(user_input)
     # +----------------------------------------------------------------------------------------------+#
     # import parameters
 
-    n_act = user_input["n_act"]
-    n_candidates = 0
-    for act in range(n_act):
-        n_candidates += len(user_input[str(act)]) // n_act
-
-    if data["MCN"] == "":
-        with open("model.pkl", 'rb') as file:
-            model_mcn = load(file)
-        # preparing prediction
-        Xnew = array([n_act, n_candidates]).reshape(-1, 2)
-        # predict mcn
-        mcn = model_mcn.predict(Xnew)
-    else:
-        mcn = int(data["MCN"])
-
-    if data["SN"] == "":
-        # sn
-        if user_input["n_act"] < 10:
-            sn = 20
-        elif user_input["n_act"] < 20:
-            sn = 30
-        elif user_input["n_act"] < 30:
-            sn = 40
-        else:
-            sn = 50
-    else:
-        sn = int(data["SN"])
-    # sq
-    if data["SQ"] == "":
-        sq = mcn // 10 if mcn < 1000 else 100
-    else:
-        sq = int(data["SQ"])
+    mcn = int(data["MCN"])
+    sn = int(data["SN"])
+    sq = int(data["SQ"])
+    n = int(data["N"])
     # executing algorithm
     if session["algorithm"] == "Single-objective":
         # cp
         cp = float(data["CP"])
         # scp
         scp = float(data["SCP"])
-        solutions = abc_genetic(problem=p, SN=sn, SQ=sq, MCN=mcn, SCP=scp, N=20, CP=cp)
+        solutions = [abc_genetic(problem=p, SN=sn, SQ=sq, MCN=mcn, SCP=scp, N=n, CP=cp)]
 
     elif session["algorithm"] == "Multi-objective":
-        solutions = moabc_nsga2(problem=p, SN=sn, SQ=sq, MCN=mcn, N=10)
-
-    # verifying constraints
-    final_solutions = []
-    for sol in solutions:
-        if sol.cp.verifyConstraints(p.getConstraints()):
-            final_solutions.append(sol.cp)
-
-    if session["algorithm"] == "single" and len(final_solutions) > 5:
-        final_solutions = final_solutions[:5]
+        solutions = moabc_nsga2(problem=p, SN=sn, SQ=sq, MCN=mcn, N=n)
 
     solution_services = []
-    for sol in final_solutions:
+    for sol in solutions:
         services = []
         for act in range(n_act):
-            services.append(sol.getService(act))
-        solution_services.append(services) #list of cp , each cp is [service1,...service n] and the index                              # represents n_act
-    return solution_services, [sol.cpQos() for sol in final_solutions]
+            services.append(sol.cp.getService(act))
+        solution_services.append(services)  # list of cp , each cp is [service1,...service n] and the index                              # represents n_act
+    return solution_services, [sol.cp.cpQos() for sol in solutions], user_input["activities"]

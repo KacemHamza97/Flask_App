@@ -3,7 +3,7 @@ from numpy import amin , amax , array
 
 #+----------------------------------------------------------------------------------------------+#
 # transform Solutions list into numpy matrix
-from web_app.users.back_end.operations.multi_objective_functions import dominates
+from web_app.users.back_end.operations.multi_objective_functions import dominates, fit
 
 
 def transform(U) :
@@ -127,25 +127,27 @@ def normalized_Euclidean_Distance(a , b , norm) :
 
 #+----------------------------------------------------------------------------------------------+#
 
-def updateSolutions(solutionsList , fronts , method , **kwargs) :
-    i = 0   # front number
+def updateSolutions(solutionsList, fronts, method, **kwargs):
+    i = 0  # front number
     S = []  # new solutionsList
     N = len(solutionsList)
 
-    while i < len(fronts) and len(fronts[i]) <= N - len(S) : 
+    while i < len(fronts) and len(fronts[i]) <= N - len(S):
         # add fronts to S until space left is lower than front size
         S += fronts[i]
         i += 1
 
-    if i < len(fronts) : 
+    if i < len(fronts):
         # selecting solutions from front based on method
-        if method == "crowdingSort" :
+        if method == "crowdingSort":
             selection = crowdingSort(fronts[i])[0:N - len(S)]
             S += selection
+    try:
+        for sol in S:
+            sol.fitness = fit(sol, S)
+            if sol in solutionsList:
+                sol.limit += 1
+    except:
+        None
 
-    for sol in S :
-        if sol in solutionsList :
-            sol.limit += 1
-
-        
     return S

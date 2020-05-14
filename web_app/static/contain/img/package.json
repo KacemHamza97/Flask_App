@@ -1,7 +1,8 @@
 
 {
-    "n_act": 5, //number of abstract services
-    "actGraph": [[0,1, 0],[1,2,0],[2,3,0],[3,4,0]],// 0: for sequential , 1:for parallel, -1 for conditional
+    "activities": {"0": "activity0","1":"activity 1","2":"activity2", ...  }, //number of abstract services
+
+    "actGraph": [[0,1, 0],[1,2,0],[2,3,0],[3,4,0] ... ],// 0: for sequential , 1:for parallel, -1 for conditional
     "constraints": {
         "responseTime": 5,
         "price": 5,
@@ -16,7 +17,7 @@
     },
     "0": [       //abstract service and candidate concrete services list
         {
-            "id": 31582737,
+            "id": "serviceX",
             "activity": 0,
             "responseTime": 4.155374102417334,
             "price": 0.16957826442630214,
@@ -25,7 +26,7 @@
             "matchingState": "precise"
         },
         {
-            "id": 31565827,
+            "id": "serviceY",
             "activity": 0,
             "responseTime": 4.15537425544,
             "price": 0.16957826442630214,

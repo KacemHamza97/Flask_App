@@ -17,10 +17,11 @@ class CreateAccountForm(FlaskForm):
 
 
 class AlgorithmSettings(FlaskForm):
+    N = StringField('N', id='N',validators=[DataRequired()])
     SCP = StringField('SQ', id='SCP',validators=[DataRequired()])
-    SQ = StringField('SQ', id='SQ')
-    MCN = StringField('MCN', id='MCN')
+    SQ = StringField('SQ', id='SQ',validators=[DataRequired()])
+    MCN = StringField('MCN', id='MCN',validators=[DataRequired()])
     CP = StringField('CP', id='CP',validators=[DataRequired()])
-    SN = StringField('SN', id='SN')
+    SN = StringField('SN', id='SN',validators=[DataRequired()])
     submit = SubmitField('Set Parameters')
 

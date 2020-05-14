@@ -23,12 +23,12 @@ def add_file(file, user, type = "input"):
         json.dump(file_to_save, f,indent=4)
 
 
-def input_data(solution_services):
+def input_data(solution_services,decoder):
     data = {"solutions":[]}
     for sol in solution_services:
         solution = {}
         for i in range(len(sol)):
-            solution[f"{i}"] = sol[i].getId()
+            solution[decoder[str(i)]] = sol[i].getId()
         data["solutions"].append(solution)
     return json.dumps(data)
 

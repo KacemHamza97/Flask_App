@@ -4,6 +4,7 @@
 <section id="services" class="section-bg">
     <div class="container">
         <header class="section-header">
+            <br><br>
             <h3>Results</h3>
             <br><br>
            <h4 style="text-align: center"> <a href="{{ pathrelative }}" download>Download</a> </h4>
@@ -17,7 +18,7 @@
                     <thead>
                     <tr>
                         <th rowspan="5" style="text-align: center">Composition Plan N°</th>
-                        <th style="text-align: center">activity N°</th>
+                        <th style="text-align: center">activity</th>
                         <th style="text-align: center">Candidate Service ID </th>
                     </tr>
                     </thead>
@@ -31,7 +32,7 @@
                         </td>
                         {% for iser in range(solution_services[icp]|length) %}
                             <tr>
-                                <td style="text-align: center"> {{ iser+1 }} </td>
+                                <td style="text-align: center"> {{ decoder[iser|string] }} </td>
                                 <td style="text-align: center">{{ solution_services[icp][iser].getId() }}   </td>
                             </tr>
                         {% endfor %}

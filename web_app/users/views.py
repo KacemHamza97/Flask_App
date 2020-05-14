@@ -42,8 +42,8 @@ def submits():
 
 @dev.route('/result', methods=['GET', 'POST'])
 def result():
-    solution_services, final_solutions = generate_solution()
-    data_j = input_data(solution_services)
+    solution_services, final_solutions, decoder = generate_solution()
+    data_j = input_data(solution_services,decoder)
     if current_user.is_authenticated:
         add_file(data_j, current_user, type="output")
         pathd = os.path.join(current_app.root_path, f"static/files/users_uploads/{current_user.id}/results")
@@ -57,7 +57,7 @@ def result():
         pathrelative = f"/static/files/users_uploads/None/results/" + files_name
 
 
-    return render_template('result.html', solution_services=solution_services, final_solutions=final_solutions, pathrelative=pathrelative)
+    return render_template('result.html', solution_services=solution_services, final_solutions=final_solutions, pathrelative=pathrelative, decoder=decoder)
 
 
 @dev.route('/service', methods=['GET', 'POST'])

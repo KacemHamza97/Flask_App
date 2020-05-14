@@ -1,5 +1,11 @@
 {
-    "n_act": 5,
+    "activities": {
+        "0": "stockage",
+        "1": "machinelearning",
+        "2": "printer",
+        "3": "calcul",
+        "4": "server"
+    },
     "actGraph": [
         [
             0,

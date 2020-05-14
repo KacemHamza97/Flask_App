@@ -19,19 +19,22 @@
                         <table class="table" style="text-align: center">
                             <thead class=" text-primary">
                             <th>
-                                SN
+                                SN<span style="color: red">*</span>
                             </th>
                             <th>
-                                MCN
+                                MCN<span style="color: red">*</span>
                             </th>
                             <th>
-                                SQ
+                                SQ<span style="color: red">*</span>
                             </th>
                             <th>
-                                CP<span style="color: red" >*</span>
+                                CP<span style="color: red">*</span>
                             </th>
                             <th>
-                                SCP<span style="color: red" >*</span>
+                                SCP<span style="color: red">*</span>
+                            </th>
+                            <th>
+                                N<span style="color: red">*</span>
                             </th>
                             </thead>
                             <tbody>
@@ -50,6 +53,9 @@
                                 </td>
                                 <td>
                                     {{ form.SCP(class="form-control" , style="text-align: center") }}
+                                </td>
+                                <td>
+                                    {{ form.N(class="form-control" , style="text-align: center") }}
                                 </td>
                             </tr>
                             <tr>
