@@ -17,14 +17,14 @@
                     <!--Table head-->
                     <thead>
                     <tr>
-                        <th rowspan="5" style="text-align: center">Composition Plan N°</th>
+                        <th rowspan= {{ nrow }} style="text-align: center">Composition Plan N°</th>
                         <th style="text-align: center">activity</th>
                         <th style="text-align: center">Candidate Service ID </th>
                     </tr>
                     </thead>
                     <tbody>
                     {% for icp in range(solution_services|length) %}
-                        <td  rowspan="6" style="text-align: center"><h3>{{ icp+1 }}</h3><br>
+                        <td  rowspan= {{ nrow + 1 }} style="text-align: center"><h3>{{ icp+1 }}</h3><br>
                             <span style="color: #00c853;font-weight: bold">Price</span> : {{ final_solutions[icp]["price"] }} <br>
                             <span style="color: #005cbf;font-weight: bold">Response Time</span> : {{ final_solutions[icp]["responseTime"] }}<br>
                             <span style="color: darkviolet;font-weight: bold">Availability</span> : {{ final_solutions[icp]["availability"] }}<br>

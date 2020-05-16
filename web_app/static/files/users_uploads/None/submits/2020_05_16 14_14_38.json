@@ -1,0 +1,322 @@
+{
+    "activities": {
+        "0": "Receive customer application for account opening",
+        "1": "Check customer application",
+        "2": "Analyze customer application",
+        "3": "Recommend account type (SMR)",
+        "4": "Send  account ID",
+        "5": "Approve new account"
+    },
+    "actGraph": [
+        [
+            0,
+            1,
+            0
+        ],
+        [
+            1,
+            2,
+            0
+        ],
+        [
+            2,
+            3,
+            0
+        ],
+        [
+            3,
+            4,
+            0
+        ],
+        [
+            4,
+            5,
+            0
+        ]
+    ],
+    "constraints": {
+        "responseTime": 13,
+        "price": 9,
+        "availability": 0.5,
+        "reliability": 0.3
+    },
+    "weights": {
+        "responseTime": 0.5,
+        "price": 0.25,
+        "availability": 0.15,
+        "reliability": 0.1
+    },
+    "0": [
+        {
+            "id": "Amazon SQS",
+            "activity": 0,
+            "responseTime": 2.998876448260803,
+            "price": 1.998375804243596,
+            "availability": 0.9009818772768551,
+            "reliability": 0.8920940095418479,
+            "matchingState": "over"
+        },
+        {
+            "id": "Aws simple email (SES)",
+            "activity": 0,
+            "responseTime": 4.023129611245247,
+            "price": 1.2594266977188133,
+            "availability": 0.9854207269800016,
+            "reliability": 0.7908351195105208,
+            "matchingState": "over"
+        },
+        {
+            "id": "Azure Service Bus",
+            "activity": 0,
+            "responseTime": 2.074590139903999,
+            "price": 2.780204198268957,
+            "availability": 0.9589660994045057,
+            "reliability": 0.8069914010184288,
+            "matchingState": "over"
+        }
+    ],
+    "1": [
+        {
+            "id": "Amazon Simple DB",
+            "activity": 1,
+            "responseTime": 4.083547655861277,
+            "price": 0.8213155032826077,
+            "availability": 0.9427927764818284,
+            "reliability": 0.8716292024256,
+            "matchingState": "over"
+        },
+        {
+            "id": "Amazon DRS",
+            "activity": 1,
+            "responseTime": 2.615359260115723,
+            "price": 1.024029854339536,
+            "availability": 0.9401141770416146,
+            "reliability": 0.8926912372750748,
+            "matchingState": "over"
+        },
+        {
+            "id": "Amazon Dynamo DB",
+            "activity": 1,
+            "responseTime": 1.4532172651371897,
+            "price": 2.323812714819415,
+            "availability": 0.9548508595080756,
+            "reliability": 0.7444258323504042,
+            "matchingState": "precise"
+        },
+        {
+            "id": "Amazon Neptune",
+            "activity": 1,
+            "responseTime": 2.1748543159106943,
+            "price": 0.6784579191835068,
+            "availability": 0.9451559632465565,
+            "reliability": 0.8733173053809982,
+            "matchingState": "over"
+        },
+        {
+            "id": "Oracle Database",
+            "activity": 1,
+            "responseTime": 0.5927958872015325,
+            "price": 0.33060173979707097,
+            "availability": 0.9152391698957747,
+            "reliability": 0.7506674200904139,
+            "matchingState": "precise"
+        },
+        {
+            "id": "Oracle  Data Hub",
+            "activity": 1,
+            "responseTime": 4.954749182202609,
+            "price": 0.9574684081326865,
+            "availability": 0.9650649142591562,
+            "reliability": 0.8863498612195594,
+            "matchingState": "over"
+        }
+    ],
+    "2": [
+        {
+            "id": "AWS Analytics",
+            "activity": 2,
+            "responseTime": 0.6166733826542868,
+            "price": 2.106163829824206,
+            "availability": 0.9327950221000205,
+            "reliability": 0.8490930684931903,
+            "matchingState": "precise"
+        },
+        {
+            "id": "Zoho Analytics",
+            "activity": 2,
+            "responseTime": 1.075095813675604,
+            "price": 0.545417003868441,
+            "availability": 0.9791223554204883,
+            "reliability": 0.8010502714572684,
+            "matchingState": "precise"
+        },
+        {
+            "id": "Domo",
+            "activity": 2,
+            "responseTime": 2.5359786655792416,
+            "price": 2.644284749898467,
+            "availability": 0.9388059025318112,
+            "reliability": 0.930201293369019,
+            "matchingState": "precise"
+        },
+        {
+            "id": "IBM Cogno",
+            "activity": 2,
+            "responseTime": 4.399299726354426,
+            "price": 0.7301355247487524,
+            "availability": 0.9694987066187004,
+            "reliability": 0.7164614220505418,
+            "matchingState": "over"
+        },
+        {
+            "id": "Amazon SageMaker",
+            "activity": 2,
+            "responseTime": 2.443620757044967,
+            "price": 1.5537213969051011,
+            "availability": 0.9160692461850597,
+            "reliability": 0.9450619932662222,
+            "matchingState": "precise"
+        },
+        {
+            "id": "Aws EMR",
+            "activity": 2,
+            "responseTime": 2.4245633654539773,
+            "price": 0.14609033618774497,
+            "availability": 0.9837619334393083,
+            "reliability": 0.8683345634398231,
+            "matchingState": "over"
+        }
+    ],
+    "3": [
+        {
+            "id": "Aws Personalize",
+            "activity": 3,
+            "responseTime": 3.7984419745740934,
+            "price": 1.1632141911425886,
+            "availability": 0.9202603966158673,
+            "reliability": 0.7895599962435276,
+            "matchingState": "precise"
+        },
+        {
+            "id": "Aws Athena",
+            "activity": 3,
+            "responseTime": 4.498381966383682,
+            "price": 1.802858745872018,
+            "availability": 0.9213836297176178,
+            "reliability": 0.7676860492558366,
+            "matchingState": "precise"
+        },
+        {
+            "id": "Amazon SageMaker",
+            "activity": 3,
+            "responseTime": 3.9847547551662905,
+            "price": 2.2925427150059416,
+            "availability": 0.9734297926921391,
+            "reliability": 0.8708917461818441,
+            "matchingState": "over"
+        },
+        {
+            "id": "Aws EMR",
+            "activity": 3,
+            "responseTime": 0.7727232045836532,
+            "price": 2.7193831466380236,
+            "availability": 0.9204852281935882,
+            "reliability": 0.8564180287607943,
+            "matchingState": "precise"
+        },
+        {
+            "id": "Amazon Kinesis",
+            "activity": 3,
+            "responseTime": 0.6249102909065102,
+            "price": 2.9596822003432965,
+            "availability": 0.9481533595931984,
+            "reliability": 0.8665872618818505,
+            "matchingState": "precise"
+        }
+    ],
+    "4": [
+        {
+            "id": "Amazon SQS",
+            "activity": 4,
+            "responseTime": 1.2580612184686664,
+            "price": 2.969579866221739,
+            "availability": 0.9609975871062992,
+            "reliability": 0.7252488523923697,
+            "matchingState": "over"
+        },
+        {
+            "id": "Amazon SNS",
+            "activity": 4,
+            "responseTime": 2.4974301424593333,
+            "price": 1.7248798515793986,
+            "availability": 0.9424444307382358,
+            "reliability": 0.8865098218219222,
+            "matchingState": "precise"
+        },
+        {
+            "id": "Amazon SimpleMail",
+            "activity": 4,
+            "responseTime": 4.224154932631821,
+            "price": 2.9405279983374313,
+            "availability": 0.9442568215893336,
+            "reliability": 0.735370683135658,
+            "matchingState": "over"
+        },
+        {
+            "id": "Amazon WorkMail",
+            "activity": 4,
+            "responseTime": 2.5411582564483775,
+            "price": 1.2159028301602988,
+            "availability": 0.9597014372025725,
+            "reliability": 0.8899935636766328,
+            "matchingState": "precise"
+        },
+        {
+            "id": "BlueMix Twilio",
+            "activity": 4,
+            "responseTime": 0.6059709054180843,
+            "price": 0.6841349314700657,
+            "availability": 0.9239590157317041,
+            "reliability": 0.9350388087561584,
+            "matchingState": "over"
+        },
+        {
+            "id": "BlueMix SendGrid",
+            "activity": 4,
+            "responseTime": 1.9275540343369058,
+            "price": 0.41476386327288706,
+            "availability": 0.9335318506273426,
+            "reliability": 0.7784666901243619,
+            "matchingState": "precise"
+        }
+    ],
+    "5": [
+        {
+            "id": "Aws IAM",
+            "activity": 5,
+            "responseTime": 1.1401027208279026,
+            "price": 0.5825637126941381,
+            "availability": 0.9832013366037724,
+            "reliability": 0.7824085021715392,
+            "matchingState": "precise"
+        },
+        {
+            "id": "Aws Cognito",
+            "activity": 5,
+            "responseTime": 2.7575050215150747,
+            "price": 1.1127174684351173,
+            "availability": 0.9306171724473121,
+            "reliability": 0.7213169886181678,
+            "matchingState": "precise"
+        },
+        {
+            "id": "Aws Artifact",
+            "activity": 5,
+            "responseTime": 0.12714484874772267,
+            "price": 0.33995347698645395,
+            "availability": 0.921411705211659,
+            "reliability": 0.8683531016904404,
+            "matchingState": "over"
+        }
+    ]
+}

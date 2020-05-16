@@ -1,0 +1,12 @@
+{
+    "solutions": [
+        {
+            "Receive customer application for account opening": "Azure Service Bus",
+            "Check customer application": "Oracle Database",
+            "Analyze customer application": "Zoho Analytics",
+            "Recommend account type (SMR)": "Amazon Kinesis",
+            "Send  account ID": "BlueMix Twilio",
+            "Approve new account": "Aws Artifact"
+        }
+    ]
+}

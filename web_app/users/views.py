@@ -57,7 +57,7 @@ def result():
         pathrelative = f"/static/files/users_uploads/None/results/" + files_name
 
 
-    return render_template('result.html', solution_services=solution_services, final_solutions=final_solutions, pathrelative=pathrelative, decoder=decoder)
+    return render_template('result.html', solution_services=solution_services, final_solutions=final_solutions, pathrelative=pathrelative, decoder=decoder,nrow = len(decoder))
 
 
 @dev.route('/service', methods=['GET', 'POST'])

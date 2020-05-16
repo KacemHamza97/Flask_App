@@ -7,30 +7,45 @@
 
         <header class="section-header">
             <br><br>
-            <h3>Choose one method from these two options</h3>
+            <h3>Please choose an option</h3>
             <br><br><br>
         </header>
         <form method="post">
             <div class="row">
                 <div class="col-md-7 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
                     <div class="box">
-                        <div class="icon" style="background: #eafde7;"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>
+                        <!--                        <div class="icon" style="background: #eafde7;"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>-->
+                        <div class="icon">
+                            <svg class="bi bi-check" width="4em" height="4em" viewBox="0 0 16 16" fill="#00a5bb" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+                                      clip-rule="evenodd"/>
+                            </svg>
+                        </div>
                         <br>
                         {{ form.csrf_token }}
                         {{ form.submit1(class="btn btn-outline-info btn-rounded waves-effect") }}
-                        <p class="description"><br>This method requires that you indicate the most crucial qualities of service.
+                        <p class="description" style="text-align: center"><br>This method requires that you indicate the most crucial qualities of service.
                             The algorithm will focus on optimizing these preferences.
                             <br>Weights attribute is required in the JSON file.</p>
                     </div>
                 </div>
                 <div class="col-md-7 col-lg-6 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
                     <div class="box">
-                        <div class="icon" style="background: #ffccbc;"><i class="ion-ios-clock-outline" style="color: #95999c;"></i></div>
+                        <!--                        <div class="icon" style="background: #ffccbc;"><i class="ion-ios-clock-outline" style="color: #95999c;"></i></div>-->
+                        <div class="icon">
+                            <svg class="bi bi-check-all" width="4em" height="4em" viewBox="0 0 16 16" fill="#00a5bb" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M12.354 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L5 10.293l6.646-6.647a.5.5 0 01.708 0z"
+                                      clip-rule="evenodd"/>
+                                <path d="M6.25 8.043l-.896-.897a.5.5 0 10-.708.708l.897.896.707-.707zm1 2.414l.896.897a.5.5 0 00.708 0l7-7a.5.5 0 00-.708-.708L8.5 10.293l-.543-.543-.707.707z"/>
+                            </svg>
+
+
+                        </div>
                         <br>
                         {{ form.submit2(class="btn btn-outline-info btn-rounded waves-effect") }}
-                        <p class="description"><br>The algorithm will proceed in optimizing the qualities of service all at once.
-                            this will result in a more diverse set of solutions.
-                            <br>No weights attribute are required in the JSON file.</p>
+                        <p class="description" style="text-align: center"><br>This method will proceed in optimizing the qualities of service all at once.
+                            This will result in a more diverse set of solutions.
+                            <br>No weights attribute is required in the JSON file.</p>
                     </div>
                 </div>
             </div>
