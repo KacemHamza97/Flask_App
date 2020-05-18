@@ -1,9 +1,13 @@
-from random import uniform, sample
+from random import uniform, sample, choice
 from web_app.users.back_end.data_structure.CompositionPlan import CompositionPlan
 from web_app.users.back_end.data_structure.Solution import Solution
 from web_app.users.back_end.operations.genetic import BSG
 from web_app.users.back_end.operations.multi_objective_functions import functions
 from web_app.users.back_end.operations.multi_update import nonDominatedSort, updateSolutions
+
+
+# +----------------------------------------------------------------------------------------------+#
+
 
 # SQ : condition for scouts , MCN : number of iterations , SN : number of ressources , N : n of bees
 def moabc_nsga2(problem, SQ, MCN, SN, N):
@@ -19,6 +23,7 @@ def moabc_nsga2(problem, SQ, MCN, SN, N):
 
     # Algorithm
     for itera in range(MCN):
+
         # employed bees phase
         exploited = sample(solutionsList, N)  # selecting solutions for exploitation randomly
         U = list()
@@ -40,15 +45,16 @@ def moabc_nsga2(problem, SQ, MCN, SN, N):
             sol.probability = sol.fitness / s
 
         # onlooker bees phase
+        exploited = sample(solutionsList, N)  # selecting solutions for exploitation randomly
         probabilityList = [sol.probability for sol in solutionsList]
         a = min(probabilityList)
         b = max(probabilityList)
         U = list()
         U[:] = solutionsList
-        for sol in solutionsList:
+        for sol in exploited:
             if sol.probability > uniform(a, b):
                 cp1 = sol.cp
-                cp2 = CompositionPlan(problem.getActGraph(), problem.getCandidates())  # randomly generated cp
+                cp2 = choice(fronts[0]).cp  # pareto front chosen cp
                 offsprings = BSG(cp1, cp2, problem.getConstraints(), problem.getCandidates())  # BSG
                 # Adding offsprings
                 U += [Solution(cp=cp, fitness=0, functions=functions(cp), probability=0, limit=0) for cp in offsprings]
@@ -59,10 +65,11 @@ def moabc_nsga2(problem, SQ, MCN, SN, N):
         solutionsList = updateSolutions(solutionsList, fronts, "crowdingSort")
 
         # scout bees phase
+        exploited = sample(solutionsList, N)  # selecting solutions for exploitation randomly
         update = 0
         U = list()
         U[:] = solutionsList
-        for sol in solutionsList:
+        for sol in exploited:
             if sol.limit >= SQ:
                 sol.limit = 0
                 while 1:

@@ -1,0 +1,116 @@
+{
+    "solutions": [
+        {
+            "Receive customer application for account opening": "Aws simple email (SES)",
+            "Check customer application": "Oracle Database",
+            "Analyze customer application": "Zoho Analytics",
+            "Recommend account type (SMR)": "Amazon Kinesis",
+            "Send  account ID": "Amazon SNS",
+            "Approve new account": "Aws Artifact"
+        },
+        {
+            "Receive customer application for account opening": "Amazon SQS",
+            "Check customer application": "Amazon DRS",
+            "Analyze customer application": "AWS Analytics",
+            "Recommend account type (SMR)": "Amazon Kinesis",
+            "Send  account ID": "BlueMix Twilio",
+            "Approve new account": "Aws Artifact"
+        },
+        {
+            "Receive customer application for account opening": "Aws simple email (SES)",
+            "Check customer application": "Oracle Database",
+            "Analyze customer application": "AWS Analytics",
+            "Recommend account type (SMR)": "Aws Athena",
+            "Send  account ID": "BlueMix Twilio",
+            "Approve new account": "Aws Cognito"
+        },
+        {
+            "Receive customer application for account opening": "Aws simple email (SES)",
+            "Check customer application": "Oracle  Data Hub",
+            "Analyze customer application": "Aws EMR",
+            "Recommend account type (SMR)": "Aws Personalize",
+            "Send  account ID": "Amazon SNS",
+            "Approve new account": "Aws Artifact"
+        },
+        {
+            "Receive customer application for account opening": "Amazon SQS",
+            "Check customer application": "Amazon DRS",
+            "Analyze customer application": "Zoho Analytics",
+            "Recommend account type (SMR)": "Amazon Kinesis",
+            "Send  account ID": "Amazon SNS",
+            "Approve new account": "Aws Artifact"
+        },
+        {
+            "Receive customer application for account opening": "Azure Service Bus",
+            "Check customer application": "Amazon Neptune",
+            "Analyze customer application": "AWS Analytics",
+            "Recommend account type (SMR)": "Aws EMR",
+            "Send  account ID": "Amazon SQS",
+            "Approve new account": "Aws Artifact"
+        },
+        {
+            "Receive customer application for account opening": "Amazon SQS",
+            "Check customer application": "Oracle  Data Hub",
+            "Analyze customer application": "Amazon SageMaker",
+            "Recommend account type (SMR)": "Aws EMR",
+            "Send  account ID": "BlueMix Twilio",
+            "Approve new account": "Aws Artifact"
+        },
+        {
+            "Receive customer application for account opening": "Aws simple email (SES)",
+            "Check customer application": "Amazon Simple DB",
+            "Analyze customer application": "Domo",
+            "Recommend account type (SMR)": "Aws EMR",
+            "Send  account ID": "BlueMix SendGrid",
+            "Approve new account": "Aws IAM"
+        },
+        {
+            "Receive customer application for account opening": "Aws simple email (SES)",
+            "Check customer application": "Amazon Dynamo DB",
+            "Analyze customer application": "IBM Cogno",
+            "Recommend account type (SMR)": "Amazon Kinesis",
+            "Send  account ID": "Amazon WorkMail",
+            "Approve new account": "Aws Artifact"
+        },
+        {
+            "Receive customer application for account opening": "Amazon SQS",
+            "Check customer application": "Oracle Database",
+            "Analyze customer application": "Amazon SageMaker",
+            "Recommend account type (SMR)": "Amazon Kinesis",
+            "Send  account ID": "BlueMix SendGrid",
+            "Approve new account": "Aws Artifact"
+        },
+        {
+            "Receive customer application for account opening": "Aws simple email (SES)",
+            "Check customer application": "Amazon DRS",
+            "Analyze customer application": "AWS Analytics",
+            "Recommend account type (SMR)": "Amazon Kinesis",
+            "Send  account ID": "BlueMix Twilio",
+            "Approve new account": "Aws Artifact"
+        },
+        {
+            "Receive customer application for account opening": "Aws simple email (SES)",
+            "Check customer application": "Oracle Database",
+            "Analyze customer application": "AWS Analytics",
+            "Recommend account type (SMR)": "Aws EMR",
+            "Send  account ID": "Amazon WorkMail",
+            "Approve new account": "Aws Artifact"
+        },
+        {
+            "Receive customer application for account opening": "Amazon SQS",
+            "Check customer application": "Amazon Simple DB",
+            "Analyze customer application": "Zoho Analytics",
+            "Recommend account type (SMR)": "Aws EMR",
+            "Send  account ID": "BlueMix SendGrid",
+            "Approve new account": "Aws IAM"
+        },
+        {
+            "Receive customer application for account opening": "Aws simple email (SES)",
+            "Check customer application": "Oracle Database",
+            "Analyze customer application": "Zoho Analytics",
+            "Recommend account type (SMR)": "Aws EMR",
+            "Send  account ID": "Amazon SQS",
+            "Approve new account": "Aws Artifact"
+        }
+    ]
+}
