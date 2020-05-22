@@ -5,6 +5,7 @@ certifi==2019.11.28
 chardet==3.0.4
 click==6.7
 cycler==0.10.0
+decorator==4.4.2
 Flask==1.0.2
 Flask-Dance==0.14.0
 Flask-DebugToolbar==0.10.1
@@ -15,6 +16,7 @@ Flask-OAuthlib==0.9.4
 Flask-SQLAlchemy==2.3.2
 Flask-WTF==0.14.2
 future==0.18.2
+gunicorn==20.0.4
 httplib2==0.11.3
 idna==2.6
 itsdangerous==0.24
@@ -24,6 +26,7 @@ lazy==1.3
 Mako==1.0.7
 MarkupSafe==1.0
 matplotlib==3.2.1
+networkx==2.4
 numpy==1.18.2
 oauth2==1.9.0.post1
 oauthlib==2.0.7
